@@ -1,6 +1,6 @@
 import './style.css';
 import { add, deleteAllCompleted, populateList } from './crud.js';
-import ToDo from './tododList.js';
+import ToDo from './todoList.js';
 
 // Window load
 const list = JSON.parse(localStorage.getItem('todoList'));

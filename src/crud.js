@@ -1,4 +1,4 @@
-import ToDo from './tododList.js';
+import ToDo from './todoList.js';
 import DeleteButton from './delete-btn.png';
 
 // Add functionality
