@@ -1,5 +1,5 @@
 {
-  "name": "Todolist",
+  "name": "To-do-list",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karanj2212/Todolist.git"
+    "url": "git+https://github.com/karanj2212/To-do-list.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://karanj2212.github.io/Todolist",
+  "homepage": "https://karanj2212.github.io/To-do-list",
   "bugs": {
-    "url": "https://github.com/karanj2212/Todolist/issues"
+    "url": "https://github.com/karanj2212/To-do-list/issues"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
