@@ -31,3 +31,24 @@ describe("test for todo list function", () => {
   });
 
  // write below, delete comment
+  
+  describe("test for add storage and html DOM", () => {
+    test("test for remove funtion", () => {
+      add("hello");
+      add("buy");
+      remove(0);
+      const storage = JSON.parse(localStorage.getItem("todoList"));
+      expect(storage).toHaveLength(1);
+    });
+    test("test for html DOM when remove a task", () => {
+      document.body.innerHTML =
+        "<div>" + '  <ul id="todo-list"><li></li></ul>' + "</div>";
+      add("hello");
+      add("hello");
+      remove(0);
+      populateList();
+      const listElements = document.querySelectorAll("#todo-list li");
+      expect(listElements).toHaveLength(1);
+    });
+  });
+});
