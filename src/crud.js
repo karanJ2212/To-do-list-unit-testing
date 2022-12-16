@@ -1,12 +1,12 @@
-import ToDo from './tododList.js';
-import DeleteButton from './delete-btn.png';
+import ToDo from "./todoList.js";
+import DeleteButton from "./delete-btn.png";
 
 // Add functionality
 export function add(value) {
   // Create new item
   const newItem = new ToDo(value);
   // Update local storage
-  localStorage.setItem('todoList', JSON.stringify(newItem.getList()));
+  localStorage.setItem("todoList", JSON.stringify(newItem.getList()));
 }
 
 // Remove Functionality
@@ -17,25 +17,25 @@ export function remove(index) {
     item.index = i;
   });
   // Update local storage
-  localStorage.setItem('todoList', JSON.stringify(ToDo.list));
+  localStorage.setItem("todoList", JSON.stringify(ToDo.list));
 }
 
 export function edit(index, text) {
   ToDo.list[index].description = text;
   // Update local storage
-  localStorage.setItem('todoList', JSON.stringify(ToDo.list));
+  localStorage.setItem("todoList", JSON.stringify(ToDo.list));
 }
 
 // Add items to UI
 export function populateList() {
   // eslint-disable-next-line no-undef, no-unused-vars, no-useless-concat
-  const todoList = document.getElementById('todo-list');
-  todoList.innerHTML = '';
+  const todoList = document.getElementById("todo-list");
+  todoList.innerHTML = "";
 
   ToDo.list.forEach((item) => {
-    const listItem = document.createElement('li');
-    listItem.setAttribute('id', item.index);
-    listItem.classList = 'item-container';
+    const listItem = document.createElement("li");
+    listItem.setAttribute("id", item.index);
+    listItem.classList = "item-container";
 
     listItem.innerHTML = `
     <input class="checkbox" type="checkbox">
@@ -46,27 +46,27 @@ export function populateList() {
     // eslint-disable-next-line no-undef, no-unused-vars, no-useless-concat
     todoList.appendChild(listItem);
 
-    const checkbox = listItem.querySelector('input');
-    const text = listItem.querySelector('span');
-    const textInput = listItem.querySelector('textarea');
-    const deleteButton = listItem.querySelector('img');
+    const checkbox = listItem.querySelector("input");
+    const text = listItem.querySelector("span");
+    const textInput = listItem.querySelector("textarea");
+    const deleteButton = listItem.querySelector("img");
 
     // Update
-    checkbox.addEventListener('change', () => {
+    checkbox.addEventListener("change", () => {
       const index = parseInt(listItem.id, 10);
       ToDo.list[index].update();
-      text.classList.toggle('complete');
-      textInput.classList.toggle('complete');
-      localStorage.setItem('todoList', JSON.stringify(ToDo.list));
+      text.classList.toggle("complete");
+      textInput.classList.toggle("complete");
+      localStorage.setItem("todoList", JSON.stringify(ToDo.list));
     });
 
     // Edit functionality
-    text.addEventListener('click', () => {
-      text.style.display = 'none';
-      textInput.classList.toggle('edit-item');
+    text.addEventListener("click", () => {
+      text.style.display = "none";
+      textInput.classList.toggle("edit-item");
     });
 
-    textInput.addEventListener('keydown', (e) => {
+    textInput.addEventListener("keydown", (e) => {
       // Follow value
       text.innerHTML = textInput.value;
 
@@ -74,15 +74,15 @@ export function populateList() {
       const index = parseInt(listItem.id, 10);
       edit(index, text.innerHTML);
 
-      if (e.code === 'Enter') {
+      if (e.code === "Enter") {
         // Update UI
-        text.style.display = 'block';
-        textInput.classList.toggle('edit-item');
+        text.style.display = "block";
+        textInput.classList.toggle("edit-item");
       }
     });
 
     // Delete functionality
-    deleteButton.addEventListener('click', () => {
+    deleteButton.addEventListener("click", () => {
       // Update list
       const index = parseInt(listItem.id, 10);
       // Delete item
@@ -93,7 +93,7 @@ export function populateList() {
 
     if (item.complete) {
       checkbox.checked = true;
-      text.classList = 'complete';
+      text.classList = "complete";
     }
   });
 }
@@ -107,5 +107,5 @@ export function deleteAllCompleted(todo) {
     item.index = i;
   });
   // Update local storage
-  localStorage.setItem('todoList', JSON.stringify(todo.list));
+  localStorage.setItem("todoList", JSON.stringify(todo.list));
 }
