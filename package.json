@@ -15,6 +15,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
+    "start": "webpack serve --open",
     "dev": "webpack serve",
     "deploy": "gh-pages -d dist"
   },
