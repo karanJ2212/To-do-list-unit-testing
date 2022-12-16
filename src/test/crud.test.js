@@ -29,8 +29,6 @@ describe("test for todo list function", () => {
       expect(listElements).toHaveLength(1);
     });
   });
-
- // write below, delete comment
   
   describe("test for add storage and html DOM", () => {
     test("test for remove funtion", () => {
