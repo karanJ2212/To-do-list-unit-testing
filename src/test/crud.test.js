@@ -76,5 +76,15 @@ describe('test for todo list function', () => {
   });
 
   // paste after this
-
+describe("test for delete all completed function", () => {
+    test("Delete all completed", () => {
+      const newItem = new ToDo("some text");
+      newItem.update();
+      deleteAllCompleted(ToDo);
+      ToDo.list.forEach((item) => {
+        expect(item.complete).toBeFalsy();
+      });
+    });
+  });
+});
  
